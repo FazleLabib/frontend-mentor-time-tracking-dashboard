@@ -3,78 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Time tracking dashboard</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
+  <!-- <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  </style> -->
 </head>
 <body>
 
-  Report for
-  Jeremy Robson
+  <main>
+    <div class="grid">
 
-  Daily
-  Weekly
-  Monthly
+      <div class="grid-item side-bar">
+        <div class="profile">
+          <img src="./images/image-jeremy.png" alt="Image of Jeremy Robson.">
+          <p>Report for</p>
+          <h2>Jeremy Robson</h2>
+        </div>
+      
+        <div class="timeframe-buttons">
+          <button class="tf-btn" type="submit" id="daily">Daily</button>
+          <button class="tf-btn" type="submit" id="weekly">Weekly</button>
+          <button class="tf-btn" type="submit" id="monthly">Monthly</button>
+        </div>
 
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
+      </div>
 
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
+      <div class="grid-item activity" id="work">
 
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
+        <div class="activity-bg">
+          <img src="./images/icon-work.svg" alt="Icon of a suitcase.">
+        </div>
 
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Work</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>32hrs</h1>
+            <p>Last Week - <span>36hrs</span></p>
+          </div>
+        </div>
 
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
+      </div>
 
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
+      <div class="grid-item activity" id="play">
+        <div class="activity-bg">
+          <img src="./images/icon-play.svg" alt="Icon of a gamepad.">
+        </div>
+
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Play</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>10hrs</h1>
+            <p>Last Week - <span>8hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item activity" id="study">
+        <div class="activity-bg">
+          <img src="./images/icon-study.svg" alt="Icon of a book.">
+        </div>
+
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Study</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>4hrs</h1>
+            <p>Last Week - <span>7hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item activity" id="exercise">
+        <div class="activity-bg">
+          <img src="./images/icon-exercise.svg" alt="Rotated icon of a person running.">
+        </div>
+
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Exercise</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>4hrs</h1>
+            <p>Last Week - <span>5hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item activity" id="social">
+        <div class="activity-bg">
+          <img src="./images/icon-social.svg" alt="Icon of chat bubbles.">
+        </div>
+
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Social</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>5hrs</h1>
+            <p>Last Week - <span>10hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item activity" id="self-care">
+        <div class="activity-bg">
+          <img src="./images/icon-self-care.svg" alt="Icon of a heart with plus symbol in the middle.">
+        </div>
+        
+        <div class="information">
+          <div class="title">
+            <h3 class="title">Self Care</h3>
+            <img src="./images/icon-ellipsis.svg" alt="Icon of three ellipsis.">
+          </div>
+          <div class="stats">
+            <h1>2hrs</h1>
+            <p>Last Week - <span>2hrs</span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
 
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/FazleLabib">Fazle Labib</a>.
+    </div>
+  </footer>
 </body>
 </html>
