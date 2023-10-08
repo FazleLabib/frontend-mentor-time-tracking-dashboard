@@ -23,9 +23,7 @@ const previousSocial = document.getElementById('previous-social');
 const previousSelfCare = document.getElementById('previous-self-care');
 
 // Buttons
-const dailyBtn = document.getElementById('daily');
-const weeklyBtn = document.getElementById('weekly');
-const monthlyBtn = document.getElementById('monthly');
+const timeframeBtns = document.querySelectorAll('.tf-btn');
 
 const idName = {
     0: {title: titleWork, current: currentWork, previous: previousWork},
@@ -36,10 +34,6 @@ const idName = {
     5: {title: titleSelfCare, current: currentSelfCare, previous: previousSelfCare}
 };
 
-window.onload = function() {
-    weeklyBtn.focus();
-}
-
 let type = "weekly";
 
 function display() {
@@ -48,19 +42,14 @@ function display() {
         .then(data => {
 
             data.forEach((item, index) => {
-                let titleValue = data[index].title;
-                let currentValue = data[index].timeframes[type].current;
-                let previousValue = data[index].timeframes[type].previous;
+                
+                let titleValue = item.title;
+                let currentValue = item.timeframes[type].current;
+                let previousValue = item.timeframes[type].previous;
             
                 idName[index].title.innerHTML = titleValue;
                 idName[index].current.innerHTML = `${currentValue}hrs`;
-                if (type == "daily") {
-                    idName[index].previous.innerHTML = `Yesterday  - ${previousValue}hrs`;
-                } else if (type == "weekly") {
-                    idName[index].previous.innerHTML = `Last Week  - ${previousValue}hrs`;
-                } else {
-                    idName[index].previous.innerHTML = `Last Month  - ${previousValue}hrs`;
-                }
+                idName[index].previous.innerHTML = getPreviousLabel(type, previousValue);
 
             });
 
@@ -70,21 +59,30 @@ function display() {
     });
 }
 
+function getPreviousLabel(type, previousValue) {
+    switch (type) {
+      case 'daily':
+        return `Yesterday - ${previousValue}hrs`;
+      case 'weekly':
+        return `Last Week - ${previousValue}hrs`;
+      case 'monthly':
+        return `Last Month - ${previousValue}hrs`;
+      default:
+        return '';
+    }
+  }
+
 function changeType(typeValue) {
     type = typeValue;
+    display()
 }
 
-dailyBtn.addEventListener("click", function() {
-    changeType("daily");
-    display();
+timeframeBtns.forEach((button, index) => {
+    button.addEventListener("click", function () {
+        changeType(["daily", "weekly", "monthly"][index]);
+    });
 });
-
-weeklyBtn.addEventListener("click", function() {
-    changeType("weekly");
-    display();
-});
-
-monthlyBtn.addEventListener("click", function() {
-    changeType("monthly");
-    display();
-});
+  
+window.onload = function () {
+    timeframeBtns[1].focus();
+}
