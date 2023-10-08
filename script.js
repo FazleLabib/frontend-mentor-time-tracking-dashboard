@@ -49,7 +49,7 @@ function display() {
             
                 idName[index].title.innerHTML = titleValue;
                 idName[index].current.innerHTML = `${currentValue}hrs`;
-                idName[index].previous.innerHTML = getPreviousLabel(type, previousValue);
+                idName[index].previous.innerHTML = getPrevious(type, previousValue);
 
             });
 
@@ -59,7 +59,7 @@ function display() {
     });
 }
 
-function getPreviousLabel(type, previousValue) {
+function getPrevious(type, previousValue) {
     switch (type) {
       case 'daily':
         return `Yesterday - ${previousValue}hrs`;
